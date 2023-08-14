@@ -50,7 +50,7 @@ if extra_command:
             logger.log(
                 WARNING,
                 "ptvsd has beed deprecated for python debugging. "
-                "Please use debugpy (see https://github.com/Tecnativa/doodba#debugpy)",
+                "Please use debugpy (see https://github.com/mallorcasoft/doodba#debugpy)",
             )
             # See `python -m ptvsd -h` to understand this
             extra_command[0] = os.path.realpath(which(extra_command[0]))

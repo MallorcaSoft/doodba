@@ -8,7 +8,7 @@ ARG WKHTMLTOPDF_CHECKSUM='dfab5506104447eef2530d1adb9840ee3a67f30caaad5e9bcb8743
 ENV DB_FILTER=.* \
     DEPTH_DEFAULT=1 \
     DEPTH_MERGE=100 \
-    EMAIL=https://hub.docker.com/r/tecnativa/odoo \
+    EMAIL=https://hub.docker.com/r/mallorcasoft/odoo \
     GEOIP_ACCOUNT_ID="" \
     GEOIP_LICENSE_KEY="" \
     GIT_AUTHOR_NAME=docker-odoo \
@@ -89,7 +89,7 @@ RUN python -m venv --system-site-packages /qa/venv \
     && deactivate \
     && mkdir -p /qa/artifacts
 
-ARG ODOO_SOURCE=odoo
+ARG ODOO_SOURCE=odoo/odoo
 ARG ODOO_VERSION=16.0
 ENV ODOO_VERSION="$ODOO_VERSION"
 
@@ -138,7 +138,7 @@ RUN build_deps=" \
         wdb \
     && (python3 -m compileall -q /usr/local/lib/python3.8/ || true) \
     # generate flanker cached tables during install when /usr/local/lib/ is still intended to be written to
-    # https://github.com/Tecnativa/doodba/issues/486
+    # https://github.com/mallorcasoft/doodba/issues/486
     && python3 -c 'from flanker.addresslib import address' >/dev/null 2>&1 \
     && apt-get purge -yqq $build_deps \
     && apt-get autopurge -yqq \
@@ -149,11 +149,11 @@ ARG VCS_REF
 ARG BUILD_DATE
 ARG VERSION
 LABEL org.label-schema.schema-version="$VERSION" \
-      org.label-schema.vendor=Tecnativa \
+      org.label-schema.vendor=mallorcasoft \
       org.label-schema.license=Apache-2.0 \
       org.label-schema.build-date="$BUILD_DATE" \
       org.label-schema.vcs-ref="$VCS_REF" \
-      org.label-schema.vcs-url="https://github.com/Tecnativa/doodba"
+      org.label-schema.vcs-url="https://github.com/mallorcasoft/doodba"
 
 # Onbuild version, with all the magic
 FROM base AS onbuild

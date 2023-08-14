@@ -1,2 +1,2 @@
 ARG ODOO_VERSION
-FROM tecnativa/doodba:${ODOO_VERSION}-onbuild
+FROM mallorcasoft/doodba:${ODOO_VERSION}-onbuild

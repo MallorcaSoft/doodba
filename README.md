@@ -1,10 +1,10 @@
-# [Doodba](https://hub.docker.com/r/tecnativa/doodba)
+# [Doodba](https://hub.docker.com/r/mallorcasoft/doodba)
 
-![ci](https://github.com/Tecnativa/doodba/workflows/ci/badge.svg)
-[![](https://images.microbadger.com/badges/version/tecnativa/doodba:latest.svg)](https://microbadger.com/images/tecnativa/doodba:latest "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/tecnativa/doodba:latest.svg)](https://microbadger.com/images/tecnativa/doodba:latest "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/commit/tecnativa/doodba:latest.svg)](https://microbadger.com/images/tecnativa/doodba:latest "Get your own commit badge on microbadger.com")
-[![](https://images.microbadger.com/badges/license/tecnativa/doodba.svg)](https://microbadger.com/images/tecnativa/doodba "Get your own license badge on microbadger.com")
+![ci](https://github.com/mallorcasoft/doodba/workflows/ci/badge.svg)
+[![](https://images.microbadger.com/badges/version/mallorcasoft/doodba:latest.svg)](https://microbadger.com/images/mallorcasoft/doodba:latest "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/mallorcasoft/doodba:latest.svg)](https://microbadger.com/images/mallorcasoft/doodba:latest "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/commit/mallorcasoft/doodba:latest.svg)](https://microbadger.com/images/mallorcasoft/doodba:latest "Get your own commit badge on microbadger.com")
+[![](https://images.microbadger.com/badges/license/mallorcasoft/doodba.svg)](https://microbadger.com/images/mallorcasoft/doodba "Get your own license badge on microbadger.com")
 
 **Doodba** stands for **Do**cker **Od**oo **Ba**se, and it is a highly opinionated image
 ready to put [Odoo](https://www.odoo.com) inside it, but **without Odoo**.
@@ -244,12 +244,12 @@ web:
     depth: $DEPTH_MERGE
   remotes:
     origin: https://github.com/OCA/web.git
-    tecnativa: https://github.com/Tecnativa/partner-contact.git
+    mallorcasoft: https://github.com/mallorcasoft/partner-contact.git
   target: origin $ODOO_VERSION
   merges:
     - origin $ODOO_VERSION
     - origin refs/pull/1007/head # web_responsive search
-    - tecnativa 11.0-some_addon-custom # Branch for this customer only
+    - mallorcasoft 11.0-some_addon-custom # Branch for this customer only
 ```
 
 ###### Automatic download of repos
@@ -274,7 +274,7 @@ services:
   odoo:
     build:
       args:
-        DEFAULT_REPO_PATTERN: &origin "https://github.com/Tecnativa/{}.git"
+        DEFAULT_REPO_PATTERN: &origin "https://github.com/mallorcasoft/{}.git"
         DEFAULT_REPO_PATTERN_ODOO: *origin
 # [...]
 ```
@@ -398,9 +398,9 @@ server-tools:
 ---
 # Custom repositories
 ENV:
-  DEFAULT_REPO_PATTERN: https://github.com/Tecnativa/{}.git
+  DEFAULT_REPO_PATTERN: https://github.com/mallorcasoft/{}.git
   ODOO_VERSION: 16.0-new-feature
-some-repo: # Cloned from https://github.com/Tecnativa/some-repo.git branch 15.0-new-feature
+some-repo: # Cloned from https://github.com/mallorcasoft/some-repo.git branch 15.0-new-feature
   - some_custom_module
 ```
 
@@ -453,7 +453,7 @@ this in mind:
 - This is just a base image, full of tools. **You need to build your project subimage**
   from this one, even if your project's `Dockerfile` only contains these 2 lines:
 
-      FROM tecnativa/doodba
+      FROM mallorcasoft/doodba
       MAINTAINER Me <me@example.com>
 
 - The above sentence becomes true because we have a lot of `ONBUILD` sentences here, so
@@ -515,8 +515,8 @@ The same is true for any other [Postgres client applications][].
 Enables hot code reloading when odoo is started with `--dev` and passed `reload` or
 `all` as an argument.
 
-[copier template](https://github.com/Tecnativa/doodba-copier-template) enables this by
-default in the development environment.
+[copier template](https://github.com/mallorcasoft/doodba-copier-template) enables this
+by default in the development environment.
 
 Doodba supports this feature under versions 11.0 and later. Check
 [CLI docs](https://www.odoo.com/documentation/13.0/reference/cmdline.html#developer-features)
@@ -638,7 +638,7 @@ the `odoo.py` one too).
 ## Subproject template
 
 That's a big structure! Get it up and running quickly using the
-[copier template](https://github.com/Tecnativa/doodba-copier-template) we provide to
+[copier template](https://github.com/mallorcasoft/doodba-copier-template) we provide to
 help you generate your subproject.
 
 Check its docs to know how to use it.
@@ -674,7 +674,7 @@ You can do it through **its sha256 code**.
 Get any image's code through inspect, running from a computer where the correct image
 version is downloaded:
 
-    docker image inspect --format='{{.RepoDigests}}' tecnativa/doodba:10.0-onbuild
+    docker image inspect --format='{{.RepoDigests}}' mallorcasoft/doodba:10.0-onbuild
 
 Alternatively, you can browse [this image's builds][builds], click on the one you know
 it works fine for you, and search for the `digest` word using your browser's _search in
@@ -694,19 +694,19 @@ Once you find them, you can use that pinned version in your builds, using a Dock
 similar to this one:
 
 ```Dockerfile
-# Hash-pinned version of tecnativa/doodba:10.0-onbuild
-FROM tecnativa/doodba@sha256:fba69478f9b0616561aa3aba4d18e4bcc2f728c9568057946c98d5d3817699e1
+# Hash-pinned version of mallorcasoft/doodba:10.0-onbuild
+FROM mallorcasoft/doodba@sha256:fba69478f9b0616561aa3aba4d18e4bcc2f728c9568057946c98d5d3817699e1
 ```
 
 ### How can I help?
 
-Just [head to our project](https://github.com/Tecnativa/doodba) and open a discussion,
-issue or pull request.
+Just [head to our project](https://github.com/mallorcasoft/doodba) and open a
+discussion, issue or pull request.
 
 ## Related Projects
 
 - Of course,
-  [the Doodba Copier Template](https://github.com/Tecnativa/doodba-copier-template).
+  [the Doodba Copier Template](https://github.com/mallorcasoft/doodba-copier-template).
 - [QA tools for Doodba-based projects][doodba-qa]
 - [Ansible role for automated deployment / update from Le Filament](https://github.com/remi-filament/ansible_role_odoo_docker)
 - Find others by searching
@@ -724,10 +724,10 @@ issue or pull request.
 [`click-odoo`]: https://github.com/acsone/click-odoo
 [`click-odoo-contrib`]: https://github.com/acsone/click-odoo-contrib
 [build.d]: #optodoocustombuildd
-[builds]: https://hub.docker.com/r/tecnativa/doodba/builds/
+[builds]: https://hub.docker.com/r/mallorcasoft/doodba/builds/
 [dependencies]: #optodoocustomdependenciestxt
 [development]: #development
-[doodba-qa]: https://github.com/Tecnativa/doodba-qa
+[doodba-qa]: https://github.com/mallorcasoft/doodba-qa
 [fish]: http://fishshell.com/
 [glob]: https://docs.python.org/3/library/glob.html
 [mailhog]: #mailhog
@@ -741,7 +741,7 @@ issue or pull request.
 [postgres client applications]:
   https://www.postgresql.org/docs/current/static/reference-client.html
 [production]: #production
-[retrobreak]: https://github.com/Tecnativa/doodba/issues/67
+[retrobreak]: https://github.com/mallorcasoft/doodba/issues/67
 [template]: #subproject-template
 [several yaml documents]: http://www.yaml.org/spec/1.2/spec.html#id2760395
 [ssh-conf]:

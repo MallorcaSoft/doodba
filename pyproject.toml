@@ -2,7 +2,7 @@
 name = "doodba"
 version = "0.0.0"
 description = "Docker Odoo Base, a highly opinionated image ready to put Odoo inside it, but without Odoo"
-authors = ["Tecnativa"]
+authors = ["mallorcasoft"]
 
 [tool.poetry.dependencies]
 python = ">=3.10, <3.11"

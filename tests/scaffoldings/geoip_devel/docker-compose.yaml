@@ -24,7 +24,7 @@ services:
       GEOIP_LICENSE_KEY: $GEOIP_LICENSE_KEY
     volumes:
       - filestore:/var/lib/odoo:z
-      # also use mappings from https://github.com/Tecnativa/doodba-copier-template/blob/main/devel.yaml.jinja to
+      # also use mappings from https://github.com/mallorcasoft/doodba-copier-template/blob/main/devel.yaml.jinja to
       # simulate devel.yaml
       - ./odoo/custom:/opt/odoo/custom:ro,z
       - ./odoo/auto:/opt/odoo/auto:rw,z

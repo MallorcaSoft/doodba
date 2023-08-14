@@ -681,7 +681,7 @@ class ScaffoldingCase(unittest.TestCase):
                     "bash",
                     "-c",
                     "git --git-dir=/opt/odoo/custom/src/odoo/.git log -n 1"
-                    " | grep 'docker-odoo <https://hub.docker.com/r/tecnativa/odoo>'",
+                    " | grep 'docker-odoo <https://hub.docker.com/r/mallorcasoft/odoo>'",
                 ),
             )
 
@@ -714,7 +714,7 @@ class ScaffoldingCase(unittest.TestCase):
                     "bash",
                     "-c",
                     "git --git-dir=/opt/odoo/custom/src/odoo/.git log -n 1"
-                    " | grep 'docker-odoo <https://hub.docker.com/r/tecnativa/odoo>'",
+                    " | grep 'docker-odoo <https://hub.docker.com/r/mallorcasoft/odoo>'",
                 ),
             )
 
