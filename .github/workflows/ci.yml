@@ -29,9 +29,6 @@ jobs:
   build-test-push:
     runs-on: ubuntu-latest
     needs: pre-commit
-    permissions:
-      packages: write
-      contents: read
     strategy:
       fail-fast: false
       matrix:
