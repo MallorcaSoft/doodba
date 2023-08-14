@@ -4,7 +4,7 @@ OpenUpgrade:
   - openupgrade_scripts
 ---
 ENV:
-  DEFAULT_REPO_PATTERN_ODOO: https://github.com/OCA/OCB.git
+  DEFAULT_REPO_PATTERN_ODOO: https://github.com/odoo.git
 odoo/addons:
   - crm
   - sale

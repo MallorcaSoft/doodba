@@ -261,7 +261,7 @@ the special [`private`][] repo. This will help you keep your deployment definiti
 You can configure this behavior with these environment variables (default values shown):
 
 - `DEFAULT_REPO_PATTERN="https://github.com/OCA/{}.git"`
-- `DEFAULT_REPO_PATTERN_ODOO="https://github.com/OCA/OCB.git"`
+- `DEFAULT_REPO_PATTERN_ODOO="https://github.com/odoo.git"`
 
 As you probably guessed, we use something like `str.format(repo_basename)` on top of
 those variables to compute the default remote origin. If, i.e., you want to use your own

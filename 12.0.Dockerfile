@@ -131,7 +131,7 @@ RUN python -m venv --system-site-packages /qa/venv \
 # Execute installation script by Odoo version
 # This is at the end to benefit from cache at build time
 # https://docs.docker.com/engine/reference/builder/#/impact-on-build-caching
-ARG ODOO_SOURCE=OCA/OCB
+ARG ODOO_SOURCE=odoo
 ARG ODOO_VERSION=12.0
 ENV ODOO_VERSION="$ODOO_VERSION"
 RUN debs="libldap2-dev libsasl2-dev" \
@@ -176,7 +176,7 @@ ONBUILD ENTRYPOINT ["/opt/odoo/common/entrypoint"]
 ONBUILD CMD ["/usr/local/bin/odoo"]
 ONBUILD ARG AGGREGATE=true
 ONBUILD ARG DEFAULT_REPO_PATTERN="https://github.com/OCA/{}.git"
-ONBUILD ARG DEFAULT_REPO_PATTERN_ODOO="https://github.com/OCA/OCB.git"
+ONBUILD ARG DEFAULT_REPO_PATTERN_ODOO="https://github.com/odoo.git"
 ONBUILD ARG DEPTH_DEFAULT=1
 ONBUILD ARG DEPTH_MERGE=100
 ONBUILD ARG CLEAN=true
