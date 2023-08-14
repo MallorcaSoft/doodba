@@ -37,10 +37,14 @@ jobs:
         odoo_version:
           - "16.0"
     env:
-      # Indicates what's the equivalent to mallorcasoft/doodba:latest image
+      # Indicates what's the equivalent to tecnativa/doodba:latest image
       LATEST_RELEASE: "16.0"
+      # Variables found by default in Docker Hub builder
+      DOCKER_REPO: mallorcasoft/doodba
+      DOCKER_TAG: ${{ matrix.odoo_version }}
       GIT_SHA1: ${{ github.sha }}
       # Other variables to configure tests and execution environment
+      DOCKER_BUILDKIT: 1
       PG_VERSIONS: ${{ matrix.pg_version }}
     steps:
       # Prepare
