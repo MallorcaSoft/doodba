@@ -266,7 +266,7 @@ You can configure this behavior with these environment variables (default values
 As you probably guessed, we use something like `str.format(repo_basename)` on top of
 those variables to compute the default remote origin. If, i.e., you want to use your own
 repositories as default remotes, just add these build arguments to your
-`docker-compose.yaml` file:
+`docker-compose.yaml` file :
 
 ```yaml
 # [...]
