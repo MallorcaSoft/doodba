@@ -55,7 +55,7 @@ def matrix(
 class ScaffoldingCase(unittest.TestCase):
     def setUp(self):
         super().setUp()
-        self.compose_run = ("docker-compose", "run", "--rm", "odoo")
+        self.compose_run = ("docker compose", "run", "--rm", "odoo")
 
     def popen(self, *args, **kwargs):
         """Shortcut to open a subprocess and ensure it works."""
@@ -63,7 +63,7 @@ class ScaffoldingCase(unittest.TestCase):
         self.assertFalse(Popen(*args, **kwargs).wait())
 
     def compose_test(self, workdir, sub_env, *commands):
-        """Execute commands in a docker-compose environment.
+        """Execute commands in a docker compose environment.
 
         :param workdir:
             Path where the docker compose commands will be executed. It should
@@ -71,10 +71,10 @@ class ScaffoldingCase(unittest.TestCase):
 
         :param dict sub_env:
             Specific environment variables that will be appended to current
-            ones to execute the ``docker-compose`` tests.
+            ones to execute the ``docker compose`` tests.
 
             You can set in this dict a ``COMPOSE_FILE`` key to choose different
-            docker-compose files in the same directory.
+            docker compose files in the same directory.
 
         :param tuple()... commands:
             List of commands to be tested in the odoo container.
@@ -82,14 +82,14 @@ class ScaffoldingCase(unittest.TestCase):
         full_env = dict(environ, **sub_env)
         with self.subTest(PWD=workdir, **sub_env):
             try:
-                self.popen(("docker-compose", "build"), cwd=workdir, env=full_env)
+                self.popen(("docker compose", "build"), cwd=workdir, env=full_env)
                 for command in commands:
                     with self.subTest(command=command):
                         self.popen(
                             self.compose_run + command, cwd=workdir, env=full_env
                         )
             finally:
-                self.popen(("docker-compose", "down", "-v"), cwd=workdir, env=full_env)
+                self.popen(("docker compose", "down", "-v"), cwd=workdir, env=full_env)
 
     def test_addons_filtered(self):
         """Test addons filtering with ``ONLY`` keyword in ``addons.yaml``."""

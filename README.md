@@ -506,7 +506,7 @@ Little shell shortcut for exporting a translation template from any addon(s). Us
 Environment variables are there so that if you need to connect with the database, you
 just need to execute:
 
-    docker-compose run -l traefik.enable=false --rm odoo psql
+    docker compose run -l traefik.enable=false --rm odoo psql
 
 The same is true for any other [Postgres client applications][].
 
@@ -546,7 +546,7 @@ If you use the official [template][], you can boot it in debugpy mode with:
 
 ```bash
 export DOODBA_DEBUGPY_ENABLE=1
-docker-compose -f devel.yaml up -d
+docker compose -f devel.yaml up -d
 ```
 
 Of course, you need to have properly configured your [VSCode][]. To do so, make sure in
@@ -592,7 +592,7 @@ Then open a telnet connection to it (running in `0.0.0.0:6899` by default).
 It is safe to use in [production][] environments **if you know what you are doing and do
 not expose the debugging port to attackers**. Usage:
 
-    docker-compose exec odoo telnet localhost 6899
+    docker compose exec odoo telnet localhost 6899
 
 ### [`git-aggregator`](https://pypi.python.org/pypi/git-aggregator)
 
