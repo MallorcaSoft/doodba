@@ -199,7 +199,7 @@ class ScaffoldingCase(unittest.TestCase):
 
     def test_qa(self):
         """Test that QA tools are in place and work as expected."""
-        folder = join(SCAFFOLDINGS_DIR, "settings")
+        folder = join(SCAFFOLDINGS_DIR, "setting")
         commands = (("./custom/scripts/qa-insider-test",),)
         for sub_env in matrix():
             # Images up to v12 (inclusive) still had QA/NodeJS dependencies.
