@@ -233,7 +233,7 @@ odoo:
     origin: https://github.com/OCA/OCB.git
     odoo: https://github.com/odoo/odoo.git
     openupgrade: https://github.com/OCA/OpenUpgrade.git
-  # $ODOO_VERSION is... the Odoo version! "16.0" or similar
+  # $ODOO_VERSION is... the Odoo version! "11.0" or similar
   target: origin $ODOO_VERSION
   merges:
     - origin $ODOO_VERSION
