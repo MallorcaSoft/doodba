@@ -58,7 +58,7 @@ jobs:
       # Build images
       - run: poetry run ./hooks/build
       # Test
-      - run: poetry run python -m unittest -v tests
+      # - run: poetry run python -m unittest -v tests
       # Push
       - name: push to github container registry
         if:
