@@ -9,7 +9,7 @@ python = ">=3.10, <3.11"
 
 [tool.poetry.dev-dependencies]
 plumbum = "^1.6.9"
-pre-commit = "^2.9.3"
+pre-commit = "^3.3.3"
 pyyaml="^6.0"
 
 [build-system]
